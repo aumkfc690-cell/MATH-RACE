@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math RACE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section id="menuScreen" class="screen menu-screen">
+    <span class="decor decor-one">Math</span><span class="decor decor-two">Math</span><span
+      class="decor decor-three">Math</span>
+    <div class="menu-card">
+      <div class="logo-mark">%</div>
+      <p class="eyebrow">MATH BOARD GAME</p>
+      <h1>MATH <span>RACE</span></h1>
+      <p class="tagline">ทอยลูกเต๋า ตอบคำถาม แล้วกระโดดไปให้ถึงเส้นชัยก่อนใคร!!!</p>
+      <div class="menu-actions">
+        <button class="btn primary big" id="playBtn">เริ่มเล่น</button>
+        <button class="btn secondary" id="rulesBtn">วิธีเล่น</button>
+        <button class="btn ghost" id="settingsBtn">ตั้งค่า</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="screen game-screen hidden">
+    <header class="topbar">
+      <div class="brand">Math RACE</div>
+      <div class="top-actions">
+        <button class="btn secondary small" id="rulesInGame">วิธีเล่น</button>
+        <button class="btn ghost small" id="homeBtn">หน้าแรก</button>
+      </div>
+    </header>
+    <div class="status-strip" id="playerStatus"></div>
+    <main class="game-layout">
+      <section class="board-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>เส้นทางสู่เส้นชัย</h2>
+            <p>เดินให้ถึงช่องที่ 60 ก่อนคู่แข่ง</p>
+          </div>
+          <span class="turn-pill" id="turnLabel">ตาของคุณ</span>
+        </div>
+        <div id="board" class="board3d"></div>
+        <div class="board-legend"><span><i class="dot question"></i>คำถาม</span><span><i
+              class="dot shop"></i>ร้านค้า</span><span><i class="dot bonus"></i>โบนัส</span><span><i
+              class="dot penalty"></i>เหตุการณ์</span></div>
+      </section>
+      <aside class="side-panel">
+        <div class="panel dice-panel">
+          <h3>ลูกเต๋าของคุณ</h3>
+          <div id="diceBox" class="dice-box"></div>
+          <div class="dice-result">ผล: <span id="diceFace">?</span></div>
+          <button class="btn primary big" id="rollBtn" style="margin-top:8px">ทอยลูกเต๋า</button>
+          <p class="hint" id="turnHint">กดทอยเพื่อเริ่มเดิน</p>
+        </div>
+        <div class="panel">
+          <h3>อันดับการแข่งขัน</h3>
+          <div class="leaderboard" id="leaderboard"></div>
+        </div>
+        <div class="panel">
+          <div class="section-title">
+            <h3>ไอเทมของฉัน</h3>
+          </div>
+          <div id="inventory"></div>
+        </div>
+        <div class="panel">
+          <h3>เหตุการณ์ล่าสุด</h3>
+          <div class="game-log" id="gameLog"></div>
+        </div>
+      </aside>
+    </main>
+  </section>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" id="modalClose"
+        onclick="document.getElementById('modalBackdrop').classList.add('hidden')" aria-label="ปิดหน้าต่าง"
+        title="ปิด">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="questions.js"></script>
+  <script src="game3d.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
